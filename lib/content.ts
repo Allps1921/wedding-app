@@ -56,7 +56,7 @@ export const WEDDING = {
     {
       id: "vale-presente",
       nome: "Vale-presente livre",
-      descricao: "Qualquer valor ajuda — o carinho é o que importa.",
+      descricao: "Qualquer valor ajuda — o carinho é o que importa. Encaminhe para nosso PIX: 62 9 8213-8297 (Állan Patrick)",
     },
   ],
 } as const;

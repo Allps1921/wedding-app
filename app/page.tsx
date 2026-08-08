@@ -13,13 +13,17 @@ export default function Home() {
           src="/brasao.png"
           alt={`Brasão com as iniciais ${inicialEla}${inicialEle}`}
           className="brasao"
+          width={700}
+          height={700}
         />
         <p className="eyebrow">Nosso casamento</p>
         <p className="hero-message">
           O amor nos uniu, e diante de Deus e das nossas famílias diremos “sim”.
         </p>
         <h1 className="hero-names">
-          {WEDDING.noivos.ela} &amp; {WEDDING.noivos.ele}
+          <span className="hero-name">{WEDDING.noivos.ela}</span>
+          <span className="hero-amp">&amp;</span>
+          <span className="hero-name">{WEDDING.noivos.ele}</span>
         </h1>
         <p className="hero-date">
           {WEDDING.data.diaSemanaExtenso} · {WEDDING.data.horario}h
