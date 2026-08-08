@@ -48,10 +48,17 @@ export default function RsvpForm() {
 
   if (status === "success") {
     return (
-      <div className="form-success">
-        {comparecera === "sim"
-          ? "Presença confirmada! Contamos com você para celebrar esse dia. 💛"
-          : "Confirmação recebida. Sentiremos sua falta!"}
+      <div className="rsvp-success">
+        <div className="form-success">
+          {comparecera === "sim"
+            ? "Presença confirmada! Contamos com você para celebrar esse dia. 💛"
+            : "Confirmação recebida. Sentiremos sua falta!"}
+        </div>
+        <a className="scroll-arrow" href="#presentes" aria-label="Ir para a lista de presentes">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M4 9l8 8 8-8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </a>
       </div>
     );
   }

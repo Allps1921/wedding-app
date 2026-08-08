@@ -8,7 +8,7 @@ export const WEDDING = {
   data: {
     diaSemanaExtenso: "26 de setembro de 2026",
     horario: "19:30",
-    prazoConfirmacao: "10 de julho de 2026",
+    prazoConfirmacao: "25 de agosto de 2026",
   },
   padrinhosDela: {
     nomes: ["Cláudia de Moura Pires", "Áureo Prego"],

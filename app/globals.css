@@ -63,7 +63,6 @@ body {
   overflow: hidden;
 }
 
-
 .brasao {
   display: block;
   width: 190px;
@@ -163,19 +162,6 @@ section {
   line-height: 1.7;
 }
 
-.padrinhos {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  max-width: 520px;
-  margin: 36px auto 0;
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 17px;
-  color: var(--ink-soft);
-  text-align: center;
-}
-
 /* ---------- Location cards ---------- */
 
 .cards {
@@ -186,8 +172,7 @@ section {
 }
 
 @media (max-width: 640px) {
-  .cards,
-  .padrinhos {
+  .cards {
     grid-template-columns: 1fr;
   }
 }
@@ -519,4 +504,122 @@ table.admin-table th {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-soft);
+}
+
+/* ---------- Hero: animação de entrada ---------- */
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-anim {
+  opacity: 0;
+  animation: heroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-anim-1 { animation-delay: 0.1s; }
+.hero-anim-2 { animation-delay: 0.35s; }
+.hero-anim-3 { animation-delay: 0.5s; }
+.hero-anim-4 { animation-delay: 0.68s; }
+.hero-anim-5 { animation-delay: 0.95s; }
+.hero-anim-6 { animation-delay: 1.15s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-anim {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Hero: botões de ação ---------- */
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Seta de avançar para a próxima section ---------- */
+
+.scroll-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin: 32px auto 0;
+  border: 1px solid var(--olive-dark);
+  border-radius: 50%;
+  color: var(--olive-dark);
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.scroll-arrow:hover {
+  background: var(--olive-dark);
+  color: var(--cream);
+  transform: translateY(2px);
+}
+
+.rsvp-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ---------- Indicador flutuante de "role para baixo" ---------- */
+
+@keyframes nudgeBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes nudgeFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.scroll-nudge {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--olive-dark);
+  color: var(--cream);
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(79, 92, 51, 0.28);
+  z-index: 50;
+  animation: nudgeFadeIn 0.4s ease forwards, nudgeBounce 1.6s ease-in-out 0.4s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-nudge {
+    animation: nudgeFadeIn 0.4s ease forwards;
+  }
 }
