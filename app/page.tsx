@@ -1,5 +1,6 @@
 import RsvpForm from "./components/RsvpForm";
 import ScrollNudge from "./components/ScrollNudge";
+import GiftsSection from "./components/GiftsSection";
 import { WEDDING } from "@/lib/content";
 
 export default function Home() {
@@ -85,18 +86,7 @@ export default function Home() {
         <RsvpForm />
       </section>
 
-      <section id="presentes">
-        <p className="eyebrow center">Se desejar nos presentear</p>
-        <h2 className="section-title">Lista de presentes</h2>
-        <div className="gifts">
-          {WEDDING.presentes.map((p) => (
-            <div className="gift-card" key={p.id}>
-              <h4>{p.nome}</h4>
-              <p>{p.descricao}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <GiftsSection />
 
       <footer>
         {WEDDING.noivos.ela} &amp; {WEDDING.noivos.ele} · {WEDDING.data.diaSemanaExtenso}

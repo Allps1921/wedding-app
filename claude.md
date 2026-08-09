@@ -15,19 +15,20 @@ Preciso que você deixe ele 100% funcional em produção na Vercel. Siga esta or
 
 3. BANCO DE DADOS (supabase)
    -- Create the table
-   create table notes (
-   id bigint primary key generated always as identity,
-   title text not null
+   create table rsvp (
+     id uuid primary key,
+     nome text not null,
+     comparecera text not null check (comparecera in ('sim', 'nao')),
+     leva_acompanhante boolean not null default false,
+     nome_acompanhante text,
+     mensagem text,
+     criado_em timestamptz not null default now()
    );
 
--- Insert some sample data into the table
-insert into notes (title)
-values
-('Today I created a Supabase project.'),
-('I added some data and queried it from Next.js.'),
-('It was awesome!');
-
-alter table notes enable row level security;
+   -- Enable Row Level Security and permit reads/writes
+   alter table rsvp enable row level security;
+   create policy "permitir leitura" on rsvp for select using (true);
+   create policy "permitir insercao" on rsvp for insert with check (true);
 
 4. VARIÁVEIS DE AMBIENTE
    - Configure via `vercel env add` (produção e preview) as seguintes variáveis,
@@ -57,3 +58,5 @@ alter table notes enable row level security;
 Ao final, me entregue: a URL pública do site, a URL do /admin, e um resumo do
 que foi configurado (o que ficou automático e o que ainda depende de eu fazer
 manualmente, como confirmar domínio próprio, se for o caso).
+
+Todo o projeto foi validado. Proxima etapa: link com mcp figma.

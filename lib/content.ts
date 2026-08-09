@@ -8,7 +8,7 @@ export const WEDDING = {
   data: {
     diaSemanaExtenso: "26 de setembro de 2026",
     horario: "19:30",
-    prazoConfirmacao: "25 de agosto de 2026",
+    prazoConfirmacao: "10 de julho de 2026",
   },
   padrinhosDela: {
     nomes: ["Cláudia de Moura Pires", "Áureo Prego"],
@@ -56,7 +56,65 @@ export const WEDDING = {
     {
       id: "vale-presente",
       nome: "Vale-presente livre",
-      descricao: "Qualquer valor ajuda — o carinho é o que importa. Encaminhe para nosso PIX: 62 9 8213-8297 (Állan Patrick)",
+      descricao: "Qualquer valor ajuda — o carinho é o que importa.",
     },
   ],
+
+  // Nova versão, estruturada por categoria — vai substituir a lista simples
+  // acima assim que o layout novo (Open Design) for implementado.
+  presentesInfo: {
+    intro:
+      "Como já moramos juntos, nossa casa já está montada, então preparamos uma lista com alguns itens que ainda precisamos ou gostaríamos de renovar. Caso prefiram, também ficaremos muito felizes com um presente em dinheiro via Pix, que será utilizado para nosso lar e para essa nova fase da nossa família.",
+    categorias: [
+      {
+        id: "cama-mesa-banho",
+        nome: "Cama, mesa e banho",
+        itens: [
+          "Jogo de lençol Queen (100% algodão)",
+          "Edredom Queen",
+          "Manta para cama Queen",
+          "Jogo de toalhas de banho",
+          "Toalhas de rosto",
+          "Tapete para banheiro",
+        ],
+      },
+      {
+        id: "cozinha",
+        nome: "Cozinha",
+        itens: [
+          "Jogo de panelas",
+          "Frigideira antiaderente",
+          "Panela de pressão",
+          "Jogo de talheres",
+          "Jogo de facas",
+          "Faqueiro para churrasco",
+          "Jogo de pratos",
+          "Jogo de taças",
+          "Travessas de vidro",
+          "Assadeiras",
+          "Potes herméticos para mantimentos",
+          "Jogo de potes de vidro",
+          "Escorredor de louças",
+        ],
+      },
+      {
+        id: "eletroportateis",
+        nome: "Eletroportáteis",
+        itens: ["Air Fryer", "Cafeteira", "Mixer", "Chaleira elétrica"],
+      },
+    ],
+    pix: {
+      // TODO(Allan): colar a chave Pix real aqui (CPF, e-mail, telefone ou
+      // chave aleatória) e o nome do favorecido como aparece no banco.
+      chave: "PIX_KEY_AQUI",
+      nomeFavorecido: "Áviny Rhanik / Állan Patrick",
+      // Caminho da imagem do QR Code (gerar e colocar em /public quando a
+      // chave definitiva estiver confirmada).
+      qrCodeSrc: "/pix-qrcode.png",
+    },
+  },
+
+  // Regra prática sobre acompanhante extra / convite individual.
+  convidadoExtra:
+    "Quer levar um acompanhante extra? Essa opção é exclusiva para namorado(a) ainda não informado(a) aos noivos. Nesse caso, avise diretamente Áviny e Állan com antecedência — a festa é só com convite individual, e sem ele não é possível entrar.",
 } as const;
