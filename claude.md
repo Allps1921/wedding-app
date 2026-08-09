@@ -16,13 +16,13 @@ Preciso que você deixe ele 100% funcional em produção na Vercel. Siga esta or
 3. BANCO DE DADOS (supabase)
    -- Create the table
    create table rsvp (
-     id uuid primary key,
-     nome text not null,
-     comparecera text not null check (comparecera in ('sim', 'nao')),
-     leva_acompanhante boolean not null default false,
-     nome_acompanhante text,
-     mensagem text,
-     criado_em timestamptz not null default now()
+   id uuid primary key,
+   nome text not null,
+   comparecera text not null check (comparecera in ('sim', 'nao')),
+   leva_acompanhante boolean not null default false,
+   nome_acompanhante text,
+   mensagem text,
+   criado_em timestamptz not null default now()
    );
 
    -- Enable Row Level Security and permit reads/writes
@@ -58,5 +58,3 @@ Preciso que você deixe ele 100% funcional em produção na Vercel. Siga esta or
 Ao final, me entregue: a URL pública do site, a URL do /admin, e um resumo do
 que foi configurado (o que ficou automático e o que ainda depende de eu fazer
 manualmente, como confirmar domínio próprio, se for o caso).
-
-Todo o projeto foi validado. Proxima etapa: link com mcp figma.

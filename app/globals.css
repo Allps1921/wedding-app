@@ -140,6 +140,10 @@ section {
   padding: 64px 24px;
 }
 
+.section {
+  padding: 64px 24px;
+}
+
 .section-title {
   font-size: clamp(28px, 4vw, 38px);
   font-weight: 500;
@@ -384,6 +388,15 @@ section {
   text-align: center;
 }
 
+.pix-subtitle {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 auto 24px;
+}
+
 .pix-card-title {
   font-family: var(--font-sans);
   font-size: 12px;
@@ -471,8 +484,28 @@ section {
   margin: 44px auto 0;
 }
 
+.pix-intro {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  color: var(--ink);
+  line-height: 1.7;
+  max-width: 640px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
 .gift-category {
   border-bottom: 1px solid var(--line);
+}
+
+.gift-category-title {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--olive-dark);
+  font-weight: 500;
+  margin: 0;
 }
 
 .gift-category summary {
