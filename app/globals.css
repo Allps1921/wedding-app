@@ -368,46 +368,186 @@ section {
   border-color: #d8b6ab;
 }
 
-/* ---------- Gifts ---------- */
+/* ---------- Gifts / Lista de presentes ---------- */
 
-.gifts {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 40px;
+.pix-card {
+  background: var(--cream-deep);
+  border: 1px solid var(--line);
+  padding: 32px 28px;
+  text-align: center;
+  margin-bottom: 40px;
+  border-radius: 4px;
 }
 
-@media (max-width: 720px) {
-  .gifts {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.pix-title {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--olive-dark);
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+
+.pix-subtitle {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 auto 20px;
+}
+
+.pix-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.pix-key-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.pix-key {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  word-break: break-all;
+}
+
+.copy-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--olive-dark);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.copy-btn:hover {
+  background: var(--olive-dark);
+  color: var(--cream);
+}
+
+.pix-favorecido {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.qr-code {
+  width: 140px;
+  height: 140px;
+  max-width: 100%;
+  height: auto;
 }
 
 @media (max-width: 480px) {
-  .gifts {
-    grid-template-columns: 1fr;
+  .qr-code {
+    width: 180px;
+    height: 180px;
   }
 }
 
-.gift-card {
-  border: 1px solid var(--line);
-  padding: 24px 18px;
-  text-align: center;
-  background: #fff;
-}
-
-.gift-card h4 {
-  font-size: 19px;
-  font-weight: 500;
-  margin: 0 0 8px;
+.pix-intro {
+  font-family: var(--font-serif);
+  font-size: 16px;
   color: var(--ink);
+  line-height: 1.7;
+  max-width: 640px;
+  margin: 0 auto 40px;
+  text-align: center;
 }
 
-.gift-card p {
+.categories {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.category {
+  border-bottom: 1px solid var(--line);
+}
+
+.category:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.category-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 18px 8px;
+  font-family: inherit;
+  color: inherit;
+}
+
+.category-toggle:hover .category-title {
+  color: var(--olive);
+}
+
+.category-title {
+  font-family: var(--font-sans);
   font-size: 14px;
-  color: var(--ink-soft);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--olive-dark);
   margin: 0;
+  transition: color 0.2s ease;
+}
+
+.chevron {
+  transition: transform 0.25s ease;
+  color: var(--olive);
+}
+
+.chevron-open {
+  transform: rotate(180deg);
+}
+
+.category-items {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.category-items-open {
+  max-height: 800px; /* Valor alto o suficiente para qualquer lista */
+}
+
+.item-list {
+  list-style: none;
+  padding: 0 8px 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item-list li {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  color: var(--ink);
   line-height: 1.5;
+  padding-left: 0;
 }
 
 /* ---------- Footer ---------- */

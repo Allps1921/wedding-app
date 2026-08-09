@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import { WEDDING } from "@/lib/content";
-import styles from "./GiftsSection.module.css";
 
 export default function GiftsSection() {
   // Começa com todas as categorias abertas; o visitante pode fechar individualmente.
@@ -33,24 +32,24 @@ export default function GiftsSection() {
   };
 
   return (
-    <section id="presentes" className={styles.section}>
+    <section id="presentes">
       <div className="wrap">
         <p className="eyebrow center">Se desejar nos presentear</p>
         <h2 className="section-title">Lista de presentes</h2>
 
         {/* Pix destacado - posicionado acima de tudo para não ser ignorado */}
-        <div className={styles.pixCard}>
-          <h3 className={styles.pixTitle}>Presente em dinheiro via Pix</h3>
-          <p className={styles.pixSubtitle}>
+        <div className="pix-card">
+          <h3 className="pix-title">Presente em dinheiro via Pix</h3>
+          <p className="pix-subtitle">
             Como já moramos juntos, a casa está montada — mas uma ajuda
             para a lua de mel e a Reforminha da casa seria maravilhosa.
           </p>
-          <div className={styles.pixContent}>
-            <div className={styles.pixKeyWrap}>
-              <code className={styles.pixKey}>{pix.chave}</code>
+          <div className="pix-content">
+            <div className="pix-key-wrap">
+              <code className="pix-key">{pix.chave}</code>
               <button
                 type="button"
-                className={styles.copyBtn}
+                className="copy-btn"
                 onClick={() => copyToClipboard(pix.chave)}
                 aria-label="Copiar chave Pix"
               >
@@ -65,13 +64,13 @@ export default function GiftsSection() {
                 </svg>
               </button>
             </div>
-            <span className={styles.pixFavorecido}>{pix.nomeFavorecido}</span>
+            <span className="pix-favorecido">{pix.nomeFavorecido}</span>
 
             {/* QR Code - visível no desktop, clicável no mobile */}
             <Image
               src={pix.qrCodeSrc || "/placeholder.svg"}
               alt="QR Code Pix para presente em dinheiro"
-              className={styles.qrCode}
+              className="qr-code"
               width={140}
               height={140}
               priority
@@ -80,23 +79,23 @@ export default function GiftsSection() {
         </div>
 
         {/* Texto de abertura */}
-        <p className={styles.intro}>{intro}</p>
+        <p className="pix-intro">{intro}</p>
 
         {/* Categorias colapsáveis */}
-        <div className={styles.categories}>
+        <div className="categories">
           {categorias.map((cat) => (
-            <div key={cat.id} className={styles.category}>
+            <div key={cat.id} className="category">
               <button
                 type="button"
-                className={styles.categoryToggle}
+                className="category-toggle"
                 onClick={() => toggleCat(cat.id)}
                 aria-expanded={isExpanded(cat.id)}
                 aria-controls={`cat-${cat.id}-items`}
               >
-                <h3 className={styles.categoryTitle}>{cat.nome}</h3>
+                <h3 className="category-title">{cat.nome}</h3>
                 <svg
-                  className={`${styles.chevron} ${
-                    isExpanded(cat.id) ? styles.chevronOpen : ""
+                  className={`chevron ${
+                    isExpanded(cat.id) ? "chevron-open" : ""
                   }`}
                   width="18"
                   height="18"
@@ -115,11 +114,11 @@ export default function GiftsSection() {
 
               <div
                 id={`cat-${cat.id}-items`}
-                className={`${styles.categoryItems} ${
-                  isExpanded(cat.id) ? styles.categoryItemsOpen : ""
+                className={`category-items ${
+                  isExpanded(cat.id) ? "category-items-open" : ""
                 }`}
               >
-                <ul className={styles.itemList}>
+                <ul className="item-list">
                   {cat.itens.map((item) => (
                     <li key={`${cat.id}-${item}`}>{item}</li>
                   ))}
