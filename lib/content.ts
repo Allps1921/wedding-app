@@ -8,7 +8,7 @@ export const WEDDING = {
   data: {
     diaSemanaExtenso: "26 de setembro de 2026",
     horario: "19:30",
-    prazoConfirmacao: "10 de julho de 2026",
+    prazoConfirmacao: "25 de agosto de 2026",
   },
   padrinhosDela: {
     nomes: ["Cláudia de Moura Pires", "Áureo Prego"],
@@ -27,38 +27,6 @@ export const WEDDING = {
   },
   dressCode:
     "Traje esporte fino. Pedimos, por gentileza, que as convidadas evitem o branco — cor reservada à noiva.",
-  presentes: [
-    {
-      id: "lua-de-mel",
-      nome: "Cota para a Lua de Mel",
-      descricao: "Ajude a construir a viagem dos sonhos do casal.",
-    },
-    {
-      id: "jogo-panelas",
-      nome: "Jogo de panelas",
-      descricao: "Para os primeiros pratos da nova casa.",
-    },
-    {
-      id: "jogo-cama",
-      nome: "Jogo de cama casal",
-      descricao: "Conforto para as noites em casa.",
-    },
-    {
-      id: "eletro-cozinha",
-      nome: "Eletrodomésticos de cozinha",
-      descricao: "Liquidificador, air fryer, cafeteira e afins.",
-    },
-    {
-      id: "enxoval-banheiro",
-      nome: "Enxoval de banheiro",
-      descricao: "Toalhas e itens para o banheiro novo.",
-    },
-    {
-      id: "vale-presente",
-      nome: "Vale-presente livre",
-      descricao: "Qualquer valor ajuda — o carinho é o que importa.",
-    },
-  ],
 
   // Nova versão, estruturada por categoria — vai substituir a lista simples
   // acima assim que o layout novo (Open Design) for implementado.
@@ -117,4 +85,32 @@ export const WEDDING = {
   // Regra prática sobre acompanhante extra / convite individual.
   convidadoExtra:
     "Quer levar um acompanhante extra? Essa opção é exclusiva para namorado(a) ainda não informado(a) aos noivos. Nesse caso, avise diretamente Áviny e Állan com antecedência — a festa é só com convite individual, e sem ele não é possível entrar.",
+
+  // Texto do modal que aparece quando o convidado marca que vai levar acompanhante.
+  acompanhanteModal: {
+    titulo: "Sobre o seu acompanhante",
+    mensagem:
+      "Cada convite é individual — então, pra conseguirmos receber bem cada pessoa, qualquer acompanhante precisa ser combinado com a gente antes da festa. Não é falta de vontade de ter vocês por perto: é que esse é um momento que queremos viver de pertinho com quem fez parte da nossa jornada até aqui. Escreve o nome de quem vai com você aí embaixo, e não deixa de nos chamar pra combinarmos os detalhes, tá bom?",
+    campoLabel: "Nome do acompanhante",
+    botaoConfirmar: "Combinado, continuar",
+  },
+
+  // Mensagens finais do fluxo de RSVP, depois do envio.
+  rsvpResultado: {
+    simTitulo: "Presença confirmada!",
+    simMensagem:
+      "Ficamos muito felizes com a sua confirmação — mal podemos esperar pra celebrar esse dia com você. 💛",
+    simPresenteConvite:
+      "Se quiser nos ajudar a começar essa nova fase, preparamos uma listinha de presentes com carinho. Mas o que mais importa mesmo é ter você com a gente nesse dia.",
+
+    naoTitulo: "Sentiremos sua falta",
+    naoMensagem: "Que pena que você não vai poder estar com a gente — mas obrigado por nos avisar. 💛",
+    naoSiteAtivo:
+      "O site vai continuar no ar até o dia do casamento. Se alguma coisa mudar e você conseguir vir, é só voltar aqui e atualizar sua confirmação.",
+    naoPresenteConvite:
+      "Mesmo não podendo vir, se quiser nos presentear, ficaríamos muito felizes — dá uma olhadinha na nossa lista de presentes mais abaixo.",
+
+    naoEnviadoTitulo: "Recebido, obrigado!",
+    naoEnviadoMensagem: "Sua mensagem chegou até a gente. 💛",
+  },
 } as const;

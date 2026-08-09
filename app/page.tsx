@@ -1,98 +1,13 @@
-import RsvpForm from "./components/RsvpForm";
-import ScrollNudge from "./components/ScrollNudge";
-import GiftsSection from "./components/GiftsSection";
-import { WEDDING } from "@/lib/content";
+import fs from "fs";
+import path from "path";
+import InviteFlow from "./components/InviteFlow";
 
 export default function Home() {
-  const inicialEla = WEDDING.noivos.ela.trim()[0];
-  const inicialEle = WEDDING.noivos.ele.trim()[0];
+  // Checagem no servidor: só tenta renderizar a imagem do QR Code se o
+  // arquivo realmente existir em /public — evita ícone de imagem quebrada
+  // enquanto a chave Pix definitiva (e o QR gerado a partir dela) não chegam.
+  const qrPath = path.join(process.cwd(), "public", "pix-qrcode.png");
+  const temQrCode = fs.existsSync(qrPath);
 
-  return (
-    <main>
-      <section className="hero">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/brasao.png"
-          alt={`Brasão com as iniciais ${inicialEla}${inicialEle}`}
-          className="brasao hero-anim hero-anim-1"
-          width={700}
-          height={700}
-        />
-        <p className="eyebrow hero-anim hero-anim-2">Nosso casamento</p>
-        <p className="hero-message hero-anim hero-anim-3">
-          O amor nos uniu, e diante de Deus e das nossas famílias diremos “sim”.
-        </p>
-        <h1 className="hero-names hero-anim hero-anim-4">
-          <span className="hero-name">{WEDDING.noivos.ela}</span>
-          <span className="hero-amp">&amp;</span>
-          <span className="hero-name">{WEDDING.noivos.ele}</span>
-        </h1>
-        <p className="hero-date hero-anim hero-anim-5">
-          {WEDDING.data.diaSemanaExtenso} · {WEDDING.data.horario}h
-        </p>
-
-        <div className="hero-actions hero-anim hero-anim-6">
-          <a className="btn" href="#local">
-            Onde celebrar
-          </a>
-          <a className="btn-outline" href="#dresscode">
-            Confirmar presença
-          </a>
-        </div>
-      </section>
-
-      <section id="local">
-        <p className="eyebrow center">Onde celebrar com a gente</p>
-        <h2 className="section-title">Cerimônia &amp; Recepção</h2>
-        <div className="cards">
-          <div className="card">
-            <h3>Cerimônia</h3>
-            <p className="place">{WEDDING.cerimonia.nome}</p>
-            <p className="addr">{WEDDING.cerimonia.endereco}</p>
-            <a className="btn" href={WEDDING.cerimonia.link} target="_blank" rel="noopener noreferrer">
-              Ver localização
-            </a>
-          </div>
-          <div className="card">
-            <h3>Recepção</h3>
-            <p className="place">{WEDDING.recepcao.nome}</p>
-            <p className="addr">Após a cerimônia, os convidados serão recepcionados aqui.</p>
-            <a className="btn" href={WEDDING.recepcao.link} target="_blank" rel="noopener noreferrer">
-              Ver localização
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section id="dresscode" className="dresscode">
-        <p className="eyebrow">Dress code</p>
-        <h2 className="section-title" style={{ marginBottom: 12 }}>
-          Traje
-        </h2>
-        <p>{WEDDING.dressCode}</p>
-        <a className="scroll-arrow" href="#rsvp" aria-label="Ir para a confirmação de presença">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-            <path d="M4 9l8 8 8-8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </a>
-      </section>
-
-      <section id="rsvp">
-        <p className="eyebrow center">Sua presença é o nosso maior presente</p>
-        <h2 className="section-title">Confirme sua presença</h2>
-        <p className="blessing" style={{ marginTop: 12 }}>
-          Por favor, confirme até {WEDDING.data.prazoConfirmacao}.
-        </p>
-        <RsvpForm />
-      </section>
-
-      <GiftsSection />
-
-      <footer>
-        {WEDDING.noivos.ela} &amp; {WEDDING.noivos.ele} · {WEDDING.data.diaSemanaExtenso}
-      </footer>
-
-      <ScrollNudge targetId="presentes" idleMs={10000} />
-    </main>
-  );
+  return <InviteFlow temQrCode={temQrCode} />;
 }
