@@ -70,11 +70,25 @@ export const WEDDING = {
         nome: "Eletroportáteis",
         itens: ["Air Fryer", "Cafeteira", "Mixer", "Chaleira elétrica"],
       },
+      {
+        id: "sala-moveis",
+        nome: "Sala e móveis",
+        itens: [
+          "TV",
+          "Sofá",
+          "Poltrona",
+          "Cadeira",
+          "Rack ou painel para TV",
+          "Mesa de centro",
+          "Tapete para sala",
+          "Luminária de chão ou abajur",
+        ],
+      },
     ],
     pix: {
       // TODO(Allan): colar a chave Pix real aqui (CPF, e-mail, telefone ou
       // chave aleatória) e o nome do favorecido como aparece no banco.
-      chave: "PIX_KEY_AQUI",
+      chave: "62 9 8213-8297",
       nomeFavorecido: "Áviny Rhanik / Állan Patrick",
       // Caminho da imagem do QR Code (gerar e colocar em /public quando a
       // chave definitiva estiver confirmada).
