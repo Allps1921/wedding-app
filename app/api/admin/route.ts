@@ -3,6 +3,7 @@ import { listarRsvps } from "@/lib/store";
 
 export const runtime = "nodejs";
 
+// Editar esse campo para que a senha não fique aparecendo e seja exposta no github
 export async function POST(req: NextRequest) {
   try {
     const { senha } = await req.json();
